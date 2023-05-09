@@ -65,8 +65,8 @@ def serial_getter():
 #    raise Exception("Ruh roh..no port specified!")
 
 # hard coded serial port name, timeout after 2 minutes
-ser = serial.Serial("COM4", 230400, timeout=120)
-ser.write(('\n').encode())
+ser = serial.Serial("COM3", 230400, timeout=120)
+
 fig, ax = plt.subplots()
 plotter = Plotter(ax)
 

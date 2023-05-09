@@ -1,15 +1,28 @@
+
+#include <proc/p32mx170f256b.h>
+#include "spi.h"
+
+
 // initialize SPI1
 void initSPI() {
     // Pin B14 has to be SCK1
+    
+    
     // Turn of analog pins
     //...
+    ANSELB = 0;
+    ANSELA = 0;
     // Make an output pin for CS
     //...
+    TRISBbits.TRISB6 = 0; // choose B6 to be CS
+    LATBbits.LATB6 = 0; // set low;
     //...
     // Set SDO1
+    RPA1Rbits.RPA1R = 0b0011; // A1 is SDO1
     //...
     // Set SDI1
     //...
+    SDI1Rbits.SDI1R = 0b0010;
 
     // setup SPI1
     SPI1CON = 0; // turn off the spi module and reset it
